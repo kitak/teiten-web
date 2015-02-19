@@ -4,6 +4,7 @@ window.onload = function () {
   var video = document.getElementById('video');
   var canvas = document.getElementById('canvas');
   var context = canvas.getContext('2d');
+  // ビデオの映像を左右反転させる
   context.translate(735, 0);
   context.scale(-1, 1);
   var localMediaStream = null;
