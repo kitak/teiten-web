@@ -1,0 +1,30 @@
+{
+  "name": "teiten-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "nw",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/kitak/teiten-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kitak/teiten-web/issues"
+  },
+  "homepage": "https://github.com/kitak/teiten-web",
+  "dependencies": {
+    "nw": "^0.12.0-alpha3"
+  },
+  "window": {
+    "toolbar": false,
+    "width": 735,
+    "height": 650,
+    "resizable": false,
+    "always-on-top": true
+  }
+}
