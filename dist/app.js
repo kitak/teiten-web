@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Users/usr0600298/src/github.com/kitak/teiten-web/src/app.js' from '/Users/usr0600298/src/github.com/kitak/teiten-web'")
