@@ -21,7 +21,6 @@ export default React.createClass({
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
   },
   componentDidMount() {
-    console.log('alpha');
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     window.URL = window.URL || window.webkitURL;
     let video = document.getElementById('video');
