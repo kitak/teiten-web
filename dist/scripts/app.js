@@ -18313,12 +18313,52 @@ var style = {
 
 module.exports = React.createClass({
   displayName: "App",
+  getInitialState: function getInitialState() {
+    return {
+      captureTimerId: null,
+      canvasContext: null,
+      video: null
+    };
+  },
+  capture: function capture(canvas, context, video) {
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  },
+  componentDidMount: function componentDidMount() {
+    var _this = this;
+    console.log("alpha");
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+    window.URL = window.URL || window.webkitURL;
+    var video = document.getElementById("video");
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    // ビデオの映像を左右反転させる
+    context.translate(735, 0);
+    context.scale(-1, 1);
+
+    if (navigator.getUserMedia) {
+      navigator.getUserMedia({ video: true, audio: false }, function (stream) {
+        video.src = window.URL.createObjectURL(stream);
+      }, function (error) {
+        console.log(error);
+      });
+    }
+    var that = this;
+
+    this.state.captureTimerId = setInterval(function () {
+      console.log(_this);
+      console.log(that);
+      that.capture(canvas, context, video);
+    }, 100);
+  },
+  componentWillUnmount: function componentWillUnmount() {
+    clearInterval(this.state.captureTimerId);
+  },
   render: function render() {
     return React.createElement(
       "div",
       null,
-      React.createElement("video", { id: "video", autoPlay: true, muted: true, style: style.video, width: "735", height: "500" }),
-      React.createElement("canvas", { id: "canvas", width: "735", height: "500" })
+      React.createElement("video", { id: "video", autoPlay: true, muted: true, style: style.video, width: "740", height: "500" }),
+      React.createElement("canvas", { id: "canvas", width: "740", height: "500" })
     );
   }
 });

@@ -30,11 +30,8 @@
     ]
   },
   "window": {
-    "toolbar": false,
     "width": 730,
-    "height": 500,
-    "resizable": false,
-    "always-on-top": true
+    "height": 500
   },
   "devDependencies": {
     "babelify": "^5.0.3",
