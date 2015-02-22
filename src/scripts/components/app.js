@@ -13,8 +13,6 @@ export default React.createClass({
   getInitialState() {
     return {
       captureTimerId: null,
-      canvasContext: null,
-      video: null
     };
   },
   capture(canvas, context, video) {
