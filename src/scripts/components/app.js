@@ -13,8 +13,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <video id="video" autoPlay muted style={style.video} width="735" height="500"></video>
-        <canvas id="canvas" width="735" height="500"></canvas>
+        <video id="video" autoPlay muted style={style.video} width="740" height="500"></video>
+        <canvas id="canvas" width="740" height="500"></canvas>
       </div>
     );
   }

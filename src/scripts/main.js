@@ -23,5 +23,5 @@ window.onload = function () {
   };
   setInterval(function () {
     capture();
-  }, 1000);
+  }, 100);
 };

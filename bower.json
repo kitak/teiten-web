@@ -1,0 +1,19 @@
+{
+  "name": "teiten-web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kitak/teiten-web",
+  "authors": [
+    "Keisuke KITA <kei.kita2501@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "html5-reset": "~2.1.2"
+  }
+}
