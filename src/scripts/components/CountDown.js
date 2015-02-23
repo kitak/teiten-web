@@ -6,13 +6,19 @@ let style = {
   wrapper: {
     zIndex: 100,
     position: "absolute",
-    top: 0,
-    left: 0,
+    bottom: 0,
+    right: 0,
+    fontSize: "64px",
+    marginRight: "20px",
+    marginBottom: "220px"
   }
 };
 
 export default React.createClass({
   displayName: 'CountDown',
+  propTypes: {
+    onExpire: React.PropTypes.func.isRequired
+  },
   getInitialState() {
     return {
       updateTimerId: null,
@@ -21,10 +27,10 @@ export default React.createClass({
   },
   updateRemainSeconds() {
     if (this.state.remainSeconds == 1) {
-      // ハンドラを呼ぶ
-      this.setState({remainSeconds: 10})
+      this.props.onExpire();
+      this.setState({remainSeconds: 10});
     } else {
-      this.setState({remainSeconds: this.state.remainSeconds-1})
+      this.setState({remainSeconds: this.state.remainSeconds-1});
     }
   },
   componentDidMount() {

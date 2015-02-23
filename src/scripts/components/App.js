@@ -32,8 +32,8 @@ export default React.createClass({
   componentDidMount() {
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
     window.URL = window.URL || window.webkitURL;
-    let video = document.getElementById('video');
-    let canvas = document.getElementById('canvas');
+    let video = this.refs.video.getDOMNode();
+    let canvas = this.refs.canvas.getDOMNode();
     let context = canvas.getContext('2d');
     // ビデオの映像を左右反転させる
     context.translate(735, 0);
@@ -52,15 +52,17 @@ export default React.createClass({
       that.capture(canvas, context, video);
     }, 100);
   },
+  _onExpire() {
+  },
   componentWillUnmount() {
     clearInterval(this.state.captureTimerId);
   },
   render() {
     return (
       <div>
-        <video id="video" autoPlay muted style={style.video} width="740" height="500"></video>
-        <canvas id="canvas" width="740" height="500" style={style.canvas}></canvas>
-        <CountDown />
+        <video ref="video" autoPlay muted style={style.video} width="740" height="500"></video>
+        <canvas ref="canvas" width="740" height="500" style={style.canvas}></canvas>
+        <CountDown onExpire={this._onExpire}/>
       </div>
     );
   }
