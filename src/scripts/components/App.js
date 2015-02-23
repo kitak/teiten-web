@@ -21,7 +21,13 @@ let style = {
     position: "absolute",
     right: 0,
     bottom: 0,
-  }
+  },
+  snapButton: {
+    position: "absolute",
+    left: 15,
+    bottom: 30,
+    fontSize: 18,
+  },
 };
 
 export default React.createClass({
@@ -60,6 +66,9 @@ export default React.createClass({
   _onExpire() {
     this.setState({currentCapture: this.refs.canvas.getDOMNode().toDataURL('image/png')});
   },
+  _onSnap() {
+    this.setState({currentCapture: this.refs.canvas.getDOMNode().toDataURL('image/png')});
+  },
   componentWillUnmount() {
     clearInterval(this.state.captureTimerId);
   },
@@ -69,7 +78,8 @@ export default React.createClass({
         <video ref="video" autoPlay muted style={style.video} width="740" height="500"></video>
         <canvas ref="canvas" width="740" height="500" style={style.canvas}></canvas>
         <img src={this.state.currentCapture} width="120" height="85" style={style.currentCapture} />
-        <CountDown onExpire={this._onExpire}/>
+        <button onClick={this._onSnap} style={style.snapButton}>撮</button>
+        <CountDown onExpire={this._onExpire} />
       </div>
     );
   }
