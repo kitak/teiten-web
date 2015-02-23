@@ -1,10 +1,21 @@
 'use strict';
 
 import React from 'react';
+import CountDown from './CountDown';
 
 let style = {
   video: {
-    display: "none"
+    WebkitTransform: "scaleX(-1)",
+    position: "fixed",
+    right: 0,
+    bottom: 0,
+    minWidth: "100%",
+    minHeight: "100%",
+    width: "auto",
+    height: "auto",
+  },
+  canvas: {
+    opacity: 0,
   }
 };
 
@@ -48,7 +59,8 @@ export default React.createClass({
     return (
       <div>
         <video id="video" autoPlay muted style={style.video} width="740" height="500"></video>
-        <canvas id="canvas" width="740" height="500"></canvas>
+        <canvas id="canvas" width="740" height="500" style={style.canvas}></canvas>
+        <CountDown />
       </div>
     );
   }
