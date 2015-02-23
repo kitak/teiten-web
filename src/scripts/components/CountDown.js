@@ -6,11 +6,9 @@ let style = {
   wrapper: {
     zIndex: 100,
     position: "absolute",
-    bottom: 0,
-    right: 0,
+    bottom: 100,
+    right: 40,
     fontSize: "64px",
-    marginRight: "20px",
-    marginBottom: "220px"
   }
 };
 

@@ -16,6 +16,11 @@ let style = {
   },
   canvas: {
     opacity: 0,
+  },
+  currentCapture: {
+    position: "absolute",
+    right: 0,
+    bottom: 0,
   }
 };
 
@@ -53,6 +58,7 @@ export default React.createClass({
     }, 100);
   },
   _onExpire() {
+    this.setState({currentCapture: this.refs.canvas.getDOMNode().toDataURL('image/png')});
   },
   componentWillUnmount() {
     clearInterval(this.state.captureTimerId);
@@ -62,6 +68,7 @@ export default React.createClass({
       <div>
         <video ref="video" autoPlay muted style={style.video} width="740" height="500"></video>
         <canvas ref="canvas" width="740" height="500" style={style.canvas}></canvas>
+        <img src={this.state.currentCapture} width="120" height="85" style={style.currentCapture} />
         <CountDown onExpire={this._onExpire}/>
       </div>
     );
