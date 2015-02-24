@@ -67,7 +67,9 @@ export default React.createClass({
     this.setState({currentCapture: this.refs.canvas.getDOMNode().toDataURL('image/png')});
   },
   _onSnap() {
-    this.setState({currentCapture: this.refs.canvas.getDOMNode().toDataURL('image/png')});
+    let snapDataURL = this.refs.canvas.getDOMNode().toDataURL('image/png');
+    SnapSaver.saveFromDataURL(snapDataURL);
+    this.setState({currentCapture: snapDataURL});
   },
   componentWillUnmount() {
     clearInterval(this.state.captureTimerId);
