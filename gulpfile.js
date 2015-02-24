@@ -5,7 +5,7 @@ var browserify = require('browserify');
 var babelify   = require('babelify');
 
 gulp.task('build', function() {
-  return browserify('./src/scripts/app.js', {
+  return browserify('./src/scripts/index.js', {
           debug: true
         })
         .transform(babelify)

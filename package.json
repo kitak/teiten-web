@@ -5,8 +5,8 @@
   "main": "index.html",
   "scripts": {
     "start": "nw",
-    "build": "browserify src/scripts/app.js > dist/scripts/app.js",
-    "watch": "watchify src/scripts/app.js -d -o dist/scripts/app.js -v"
+    "build": "browserify src/scripts/index.js > dist/scripts/index.js",
+    "watch": "watchify src/scripts/index.js -d -o dist/scripts/index.js -v"
   },
   "repository": {
     "type": "git",
