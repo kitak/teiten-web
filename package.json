@@ -30,7 +30,7 @@
     ]
   },
   "window": {
-    "toolbar": true,
+    "toolbar": false,
     "resizable": false,
     "always-on-top": true,
     "width": 730,
